@@ -14,6 +14,11 @@ import { MatPaginator } from '@angular/material';
 })
 export class ListComponent implements OnInit, AfterViewInit {
 
+  selectColumnDetails = {
+    name : 'select',
+    text : '',
+    type : 'select'
+  };
   columnNameTextMap: any = {};
   columnNameTypeMap: any = {};
   displayedColumns: string[] = [];
@@ -43,13 +48,23 @@ export class ListComponent implements OnInit, AfterViewInit {
     this.bObjectMetaService.meta(bObjectName).subscribe((meta) => {
       this.bobjectMeta = meta;
       this.text = meta.text;
+
+      const displayedColumns = [];
+
+      this.columnNameTextMap[this.selectColumnDetails.name] = this.selectColumnDetails.text;
+      this.columnNameTypeMap[this.selectColumnDetails.name] = this.selectColumnDetails.type;
+      displayedColumns.push(this.selectColumnDetails.name);
+
       meta.fields.forEach((x) => {
         this.columnNameTextMap[x.name] = x.text;
       });
+
       meta.fields.forEach((x) => {
         this.columnNameTypeMap[x.name] = x.type;
       });
-      this.displayedColumns = meta.fields.map((x) => x.name);
+
+      this.displayedColumns = displayedColumns.concat( meta.fields.map((x) => x.name));
+
       this.getBObjectList(bObjectName);
     });
   }

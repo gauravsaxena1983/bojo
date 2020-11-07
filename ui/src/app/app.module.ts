@@ -32,6 +32,7 @@ import { BInputRefComponent } from './components/common/binput/binput-ref/binput
 import { BInputBoolComponent } from './components/common/binput/binput-bool/binput-bool.component';
 import { BInputOptionComponent } from './components/common/binput/binput-option/binput-option.component';
 import { BInputNumberComponent } from './components/common/binput/binput-number/binput-number.component';
+import { BCellSelectComponent } from './components/common/bcell/bcell-select/binput-select.component';
 import { BCellTextComponent } from './components/common/bcell/bcell-text/binput-text.component';
 import { BCellMultiTextComponent } from './components/common/bcell/bcell-multi-text/bcell-multi-text.component';
 import { BCellDateComponent } from './components/common/bcell/bcell-date/bcell-date.component';
@@ -54,7 +55,7 @@ import { BCellHeaderComponent } from './components/common/bcell/bcell-header/bce
     BInputBoolComponent,
     BInputOptionComponent,
     BInputNumberComponent,
-    BCellTextComponent,
+    BCellSelectComponent,
     BCellTextComponent,
     BCellMultiTextComponent,
     BCellDateComponent,
