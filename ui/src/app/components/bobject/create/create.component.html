@@ -1,0 +1,11 @@
+<ng-container *ngFor="let field of bObjectFields; let colIndex = index" [ngSwitch]="field.type">
+    <app-binput-text *ngSwitchCase="'string'" [field]="field" [data]="data" ></app-binput-text>
+    <app-binput-bool *ngSwitchCase="'bool'" [field]="field" [data]="data" ></app-binput-bool>
+    <app-binput-date *ngSwitchCase="'date'" [field]="field" [data]="data"></app-binput-date>  
+    <app-binput-multi-text *ngSwitchCase="'mstring'" [field]="field" [data]="data"></app-binput-multi-text>  
+    <app-binput-number *ngSwitchCase="'number'" [field]="field" [data]="data"></app-binput-number>  
+    <app-binput-option *ngSwitchCase="'option'" [field]="field" [data]="data"></app-binput-option>  
+    <app-binput-ref *ngSwitchCase="'ref'" [field]="field" [data]="data"></app-binput-ref>  
+    <br/>
+</ng-container>
+

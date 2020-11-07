@@ -1,0 +1,29 @@
+<h1 class="h1">{{text}}</h1>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="products">
+    <mat-table matSort #table [dataSource]="dataSource" class="mat-elevation-z1" fxFlex="100%" fxFlex.gt-sm="66%">
+
+        <ng-container *ngFor="let disCol of displayedColumns; let colIndex = index" matColumnDef="{{disCol}}" >
+
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+                <app-bcell-header  [data]="columnNameTextMap[disCol]" ></app-bcell-header>
+            </mat-header-cell>
+
+            <mat-cell *matCellDef="let element " [ngSwitch]="columnNameTypeMap[disCol]"> 
+                <app-bcell-text *ngSwitchCase="'string'"  [data]="element[disCol]" ></app-bcell-text>
+                <app-bcell-bool *ngSwitchCase="'bool'"  [data]="element[disCol]" ></app-bcell-bool>
+                <app-bcell-date *ngSwitchCase="'date'"  [data]="element[disCol]"></app-bcell-date>  
+                <app-bcell-multi-text *ngSwitchCase="'mstring'"  [data]="element[disCol]"></app-bcell-multi-text>  
+                <app-bcell-number *ngSwitchCase="'number'"  [data]="element[disCol]"></app-bcell-number>  
+                <app-bcell-option *ngSwitchCase="'option'"  [data]="element[disCol]"></app-bcell-option>  
+                <app-bcell-ref *ngSwitchCase="'ref'"  [data]="element[disCol]"></app-bcell-ref>  
+            </mat-cell>
+
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

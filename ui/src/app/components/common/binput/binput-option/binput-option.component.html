@@ -1,0 +1,6 @@
+<mat-form-field appearance="fill" >
+    <mat-label>{{field.text}}</mat-label>
+    <mat-select matInput [(value)]="data[field.name]" > 
+        <mat-option *ngFor="let topping of field.values" [value]="topping" >{{topping}}</mat-option>
+    </mat-select>   
+</mat-form-field>
