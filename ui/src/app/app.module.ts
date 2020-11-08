@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 
@@ -41,6 +41,7 @@ import { BCellBoolComponent } from './components/common/bcell/bcell-bool/bcell-b
 import { BCellOptionComponent } from './components/common/bcell/bcell-option/bcell-option.component';
 import { BCellNumberComponent } from './components/common/bcell/bcell-number/bcell-number.component';
 import { BCellHeaderComponent } from './components/common/bcell/bcell-header/bcell-header.component';
+import { BackendInterceptor } from './mock/backendinterceptor';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,13 @@ import { BCellHeaderComponent } from './components/common/bcell/bcell-header/bce
     MatButtonModule,
     MatPaginatorModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BackendInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

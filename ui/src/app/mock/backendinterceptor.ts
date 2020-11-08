@@ -1,9 +1,11 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { MockData } from './mockdata';
 
 @Injectable()
-class BackendInterceptor implements HttpInterceptor {
+export class BackendInterceptor implements HttpInterceptor {
+
     constructor(private injector: Injector) {}
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -11,80 +13,39 @@ class BackendInterceptor implements HttpInterceptor {
             return of(new HttpResponse(
                 {
                     status: 200,
-                    body: {
-                        name: 'user',
-                        text: 'User',
-                        fields : [
-                            {
-                                name: 'id',
-                                text: 'Id',
-                                type: 'number',
-                                readonly: true
-                            },
-                            {
-                                name: 'email',
-                                text: 'Email',
-                                type: 'string'
-                            },
-                            {
-                                name: 'title',
-                                text: 'Title',
-                                type: 'option',
-                                values: [
-                                    'Mr.',
-                                    'Ms.',
-                                    'Miss.',
-                                    'Dr.'
-                                ]
-                            },
-                            {
-                                name: 'firstname',
-                                text: 'First Name',
-                                type: 'string'
-                            },
-                            {
-                                name: 'lastname',
-                                text: 'Last Name',
-                                type: 'string'
-                            },
-                            {
-                                name: 'active',
-                                text: 'IsActive',
-                                type: 'bool'
-                            },
-                            {
-                                name: 'aboutme',
-                                text: 'About Me',
-                                type: 'mstring'
-                            },
-                            {
-                                name: 'createdby',
-                                text: 'Created By',
-                                type: 'ref'
-                            },
-                            {
-                                name: 'updatedby',
-                                text: 'Updated By',
-                                type: 'ref'
-                            },
-                            {
-                                name: 'updateddate',
-                                text: 'Updated Date',
-                                type: 'date'
-                            },
-                            {
-                                name: 'createddate',
-                                text: 'Created Date',
-                                type: 'date'
-                            }
-                        ],
-                        layouts: [
-                            {
-                                name: 'default'
-                            }
-                        ]
-                    }
+                    body: MockData.getUserMeta()
             }));
+        }
+
+        if (request.method === 'GET' &&  request.url === 'http://localhost:2457/api/data/user') {
+            return of(new HttpResponse(
+                {
+                    status: 200,
+                    body: MockData.getUserData()
+            }));
+        }
+
+        if (request.method === 'GET' &&  request.url.startsWith('http://localhost:2457/api/data/user/')) {
+
+            const userId = request.url.substr(request.url.lastIndexOf('/') + 1, (request.url.length - request.url.lastIndexOf('/')));
+
+            const user = MockData.getUserData(userId);
+
+            if (user) {
+                return of(new HttpResponse(
+                    {
+                        status: 200,
+                        body: user[0]
+                }));
+            } else {
+                return of(new HttpResponse(
+                    {
+                        status: 404
+                    }
+                ));
+            }
+
+            
         }
 
         next.handle(request);
