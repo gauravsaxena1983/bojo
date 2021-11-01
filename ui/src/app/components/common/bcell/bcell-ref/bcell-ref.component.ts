@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BCell } from 'src/app/common/bcell';
 
 @Component({
@@ -10,5 +10,7 @@ export class BCellRefComponent extends BCell implements OnInit {
 
   ngOnInit() {
   }
+
+  @Input() display: any;
 
 }

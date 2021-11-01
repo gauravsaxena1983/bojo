@@ -4,12 +4,20 @@ export class MockData {
     private static readonly userMeta = {
         name: 'user',
         text: 'User',
+        code: '000001|0001',
         fields : [
             {
                 name: 'id',
                 text: 'Id',
-                type: 'number',
+                type: 'unique',
                 readonly: true
+            },
+            {
+                name: 'name',
+                text: 'Name',
+                type: 'formula',
+                readonly: true,
+                value: 'firstname + " " +  lastname'
             },
             {
                 name: 'email',
@@ -78,80 +86,116 @@ export class MockData {
     private static readonly userData = {
         list : [
             {
-                id: '1',
-                email: 'gsaxena@test.com',
-                firstname: 'Gaurav',
-                lastname: 'Saxena',
+                id: '0000010001000001',
+                email: 'shivajig@test.com',
+                name: 'Shivaji Gaekwad',
+                firstname: 'Shivaji',
+                lastname: 'Gaekwad',
                 active: true,
                 title: 'Mr.',
-                aboutme: 'I Live in Pune.\nAnd from Gwalior.',
+                aboutme: 'I am from Bangalore.',
                 createdby: null,
                 updatedby: null,
                 updateddate: new Date(1995, 11, 17),
                 createddate: new Date(1995, 11, 17)
             },
             {
-                id: '2',
-                email: 'gsaxena@test.com',
-                firstname: 'Gaurav',
-                lastname: 'Saxena',
+                id: '0000010001000002',
+                email: 'chuckn@test.com',
+                name: 'Chuck Norris',
+                firstname: 'Chuck',
+                lastname: 'Norris',
                 active: true,
                 title: 'Mr.',
-                aboutme: 'I Live in Pune.\nAnd from Gwalior.',
-                createdby: null,
-                updatedby: null,
+                aboutme: 'I am from Ryan',
+                createdby: {
+                    id: '0000010001000001',
+                    name: 'Shivaji Gaekwad'
+                },
+                updatedby: {
+                    id: '0000010001000001',
+                    name: 'Shivaji Gaekwad'
+                },
                 updateddate: new Date(1995, 11, 17),
                 createddate: new Date(1995, 11, 17)
             },
             {
-                id: '3',
-                email: 'gsaxena@test.com',
-                firstname: 'Gaurav',
-                lastname: 'Saxena',
+                id: '0000010001000003',
+                email: 'tomm@test.com',
+                name: 'Tom Max',
+                firstname: 'Tom',
+                lastname: 'Max',
                 active: true,
                 title: 'Mr.',
-                aboutme: 'I Live in Pune.\nAnd from Gwalior.',
-                createdby: null,
-                updatedby: null,
+                aboutme: 'I am from kentucky',
+                createdby: {
+                    id: '0000010001000001',
+                    name: 'Shivaji Gaekwad'
+                },
+                updatedby: {
+                    id: '0000010001000001',
+                    name: 'Shivaji Gaekwad'
+                },
                 updateddate: new Date(1995, 11, 17),
                 createddate: new Date(1995, 11, 17)
             },
             {
-                id: '4',
-                email: 'gsaxena@test.com',
-                firstname: 'Gaurav',
-                lastname: 'Saxena',
+                id: '0000010001000004',
+                email: 'vijay@test.com',
+                name: 'Vijay Chauhan',
+                firstname: 'Vijay',
+                lastname: 'Chauhan',
                 active: true,
                 title: 'Mr.',
-                aboutme: 'I Live in Pune.\nAnd from Gwalior.',
-                createdby: null,
-                updatedby: null,
+                aboutme: 'I am from Mandawa.',
+                createdby: {
+                    id: '0000010001000003',
+                    name: 'Tom Max'
+                },
+                updatedby: {
+                    id: '0000010001000003',
+                    name: 'Tom Max'
+                },
                 updateddate: new Date(1995, 11, 17),
                 createddate: new Date(1995, 11, 17)
             },
             {
-                id: '5',
-                email: 'gsaxena@test.com',
-                firstname: 'Gaurav',
-                lastname: 'Saxena',
+                id: '0000010001000005',
+                email: 'rockyb@test.com',
+                name: 'Rocky Balboa',
+                firstname: 'Rocky',
+                lastname: 'Balboa',
                 active: true,
                 title: 'Mr.',
-                aboutme: 'I Live in Pune.\nAnd from Gwalior.',
-                createdby: null,
-                updatedby: null,
+                aboutme: 'I am from  Philadelphia.',
+                createdby: {
+                    id: '0000010001000001',
+                    name: 'Shivaji Gaekwad'
+                },
+                updatedby: {
+                    id: '0000010001000001',
+                    name: 'Shivaji Gaekwad'
+                },
                 updateddate: new Date(1995, 11, 17),
                 createddate: new Date(1995, 11, 17)
             },
             {
-                id: '6',
-                email: 'gsaxena@test.com',
-                firstname: 'Gaurav',
-                lastname: 'Saxena',
+                id: '0000010001000006',
+                email: 'darthv@test.com',
+                name: 'Darth Vader',
+                firstname: 'Darth',
+                lastname: 'Vader',
                 active: true,
                 title: 'Mr.',
-                aboutme: 'I Live in Pune.\nAnd from Gwalior.',
-                createdby: null,
-                updatedby: null,
+                aboutme: 'I am from Tatooine.',
+                createdby: {
+                    id: '0000010001000001',
+                    name: 'Shivaji Gaekwad'
+                },
+                updatedby: {
+                    id: '0000010001000001',
+                    name: 'Shivaji Gaekwad'
+                },
                 updateddate: new Date(1995, 11, 17),
                 createddate: new Date(1995, 11, 17)
             }

@@ -34,10 +34,12 @@ import { BInputOptionComponent } from './components/common/binput/binput-option/
 import { BInputNumberComponent } from './components/common/binput/binput-number/binput-number.component';
 import { BCellSelectComponent } from './components/common/bcell/bcell-select/binput-select.component';
 import { BCellTextComponent } from './components/common/bcell/bcell-text/binput-text.component';
+import { BCellUniqueComponent } from './components/common/bcell/bcell-unique/binput-unique.component';
 import { BCellMultiTextComponent } from './components/common/bcell/bcell-multi-text/bcell-multi-text.component';
 import { BCellDateComponent } from './components/common/bcell/bcell-date/bcell-date.component';
 import { BCellRefComponent } from './components/common/bcell/bcell-ref/bcell-ref.component';
 import { BCellBoolComponent } from './components/common/bcell/bcell-bool/bcell-bool.component';
+import { BCellFormulaComponent } from './components/common/bcell/bcell-formula/binput-formula.component';
 import { BCellOptionComponent } from './components/common/bcell/bcell-option/bcell-option.component';
 import { BCellNumberComponent } from './components/common/bcell/bcell-number/bcell-number.component';
 import { BCellHeaderComponent } from './components/common/bcell/bcell-header/bcell-header.component';
@@ -58,13 +60,15 @@ import { BackendInterceptor } from './mock/backendinterceptor';
     BInputNumberComponent,
     BCellSelectComponent,
     BCellTextComponent,
+    BCellUniqueComponent,
     BCellMultiTextComponent,
     BCellDateComponent,
     BCellRefComponent,
     BCellBoolComponent,
     BCellOptionComponent,
     BCellNumberComponent,
-    BCellHeaderComponent
+    BCellHeaderComponent,
+    BCellFormulaComponent
   ],
   imports: [
     HttpClientModule,

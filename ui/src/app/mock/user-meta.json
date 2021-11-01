@@ -1,0 +1,80 @@
+{
+    "name": "user",
+    "text": "User",
+    "fields" : [
+        {
+            "name": "id",
+            "text": "Id",
+            "type": "number",
+            "readonly": true
+        },
+        {
+            "name": "name",
+            "text": "Name",
+            "type": "formula",
+            "readonly": true,
+            "value": "firstname + ' ' +  lastname"
+        },
+        {
+            "name": "email",
+            "text": "Email",
+            "type": "string"
+        },
+        {
+            "name": "title",
+            "text": "Title",
+            "type": "option",
+            "values": [
+                "Mr.",
+                "Ms.",
+                "Miss.",
+                "Dr."
+            ]
+        },
+        {
+            "name": "firstname",
+            "text": "First Name",
+            "type": "string"
+        },
+        {
+            "name": "lastname",
+            "text": "Last Name",
+            "type": "string"
+        },
+        {
+            "name": "active",
+            "text": "IsActive",
+            "type": "bool"
+        },
+        {
+            "name": "aboutme",
+            "text": "About Me",
+            "type": "mstring"
+        },
+        {
+            "name": "createdby",
+            "text": "Created By",
+            "type": "ref"
+        },
+        {
+            "name": "updatedby",
+            "text": "Updated By",
+            "type": "ref"
+        },
+        {
+            "name": "updateddate",
+            "text": "Updated Date",
+            "type": "date"
+        },
+        {
+            "name": "createddate",
+            "text": "Created Date",
+            "type": "date"
+        }
+    ],
+    "layouts": [
+        {
+            "name": "default"
+        }
+    ]
+}

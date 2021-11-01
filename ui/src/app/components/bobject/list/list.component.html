@@ -9,6 +9,7 @@
             </mat-header-cell>
 
             <mat-cell *matCellDef="let element " [ngSwitch]="columnNameTypeMap[disCol]"> 
+                <app-bcell-unique *ngSwitchCase="'unique'"  [data]="element[disCol]"></app-bcell-unique>  
                 <app-bcell-select *ngSwitchCase="'select'"  [data]="element[disCol]" ></app-bcell-select>
                 <app-bcell-text *ngSwitchCase="'string'"  [data]="element[disCol]" ></app-bcell-text>
                 <app-bcell-bool *ngSwitchCase="'bool'"  [data]="element[disCol]" ></app-bcell-bool>
@@ -16,7 +17,8 @@
                 <app-bcell-multi-text *ngSwitchCase="'mstring'"  [data]="element[disCol]"></app-bcell-multi-text>  
                 <app-bcell-number *ngSwitchCase="'number'"  [data]="element[disCol]"></app-bcell-number>  
                 <app-bcell-option *ngSwitchCase="'option'"  [data]="element[disCol]"></app-bcell-option>  
-                <app-bcell-ref *ngSwitchCase="'ref'"  [data]="element[disCol]"></app-bcell-ref>  
+                <app-bcell-formula *ngSwitchCase="'formula'"  [data]="element[disCol]"></app-bcell-formula>  
+                <app-bcell-ref *ngSwitchCase="'ref'"  [data]="element[disCol]" [display]="'name'"></app-bcell-ref>  
             </mat-cell>
 
         </ng-container>

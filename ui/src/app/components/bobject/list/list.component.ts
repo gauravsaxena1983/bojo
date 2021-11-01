@@ -65,6 +65,10 @@ export class ListComponent implements OnInit, AfterViewInit {
 
       this.displayedColumns = displayedColumns.concat( meta.fields.map((x) => x.name));
 
+      console.log('displayedColumns: ');
+
+      console.log(this.displayedColumns);
+
       this.getBObjectList(bObjectName);
     });
   }

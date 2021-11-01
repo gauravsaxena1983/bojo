@@ -44,8 +44,6 @@ export class BackendInterceptor implements HttpInterceptor {
                     }
                 ));
             }
-
-            
         }
 
         next.handle(request);
